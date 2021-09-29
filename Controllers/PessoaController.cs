@@ -31,50 +31,5 @@ namespace API.Controllers
         [Route("list")]
         public IActionResult List() => Ok(_context.Pessoas.ToList());
 
-        //GET: api/pessoa/getbyid/1
-        [HttpGet]
-        [Route("getbyid/{id}")]
-        public IActionResult GetById([FromRoute] int id)
-        {
-            //Buscar um pessoa pela chave primária
-            Pessoa pessoa = _context.Pessoas.Find(id);
-            if (pessoa == null)
-            {
-                return NotFound();
-            }
-            return Ok(pessoa);
-        }
-
-        //DELETE: api/pessoa/delete/
-        [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string name)
-        {
-            //Expressão lambda
-            //Buscar um pessoa pelo nome
-            Pessoa pessoa = _context.Pessoas.FirstOrDefault
-            (
-                pessoa => pessoa.Nome == name
-            );
-            if (pessoa == null)
-            {
-                return NotFound();
-            }
-            _context.Pessoas.Remove(pessoa);
-            _context.SaveChanges();
-            return Ok(_context.Pessoas.ToList());
-        }
-
-        //PUT: api/pessoa/create
-        [HttpPut]
-        [Route("update")]
-        public IActionResult Update([FromBody] Pessoa pessoa)
-        {
-            _context.Pessoas.Update(pessoa);
-            _context.SaveChanges();
-            return Ok(pessoa);
-        }
-
-
     }
 }

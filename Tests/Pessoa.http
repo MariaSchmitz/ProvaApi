@@ -1,0 +1,30 @@
+### Cadastrar pessoa
+POST https://localhost:5001/api/pessoa/create
+Content-Type: application/json
+
+{
+    "Nome" : "Maria",
+    "Email" : "MariaGabriela@up.com.br",
+    "Naturalidade" : "Cascavel/Parana",
+    "Idade" : 24
+
+}
+
+### Listar pessoas
+GET https://localhost:5001/api/pessoa/list
+
+### Buscar pessoa pelo id
+GET https://localhost:5001/api/pessoa/getbyid/1
+
+### Alterar pessoa
+PUT https://localhost:5001/api/pessoa/update
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "Nome" : "Bolacha alterado 2",
+    "Preco" : 3.5
+}
+
+### Deletar pessoa
+DELETE https://localhost:5001/api/pessoa/delete/Bolacha
